@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="443.0" prefWidth="567.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.amremad719.mosaicify.MosaicifyController">
+    <children>
+        <VBox fx:id="librarySettingsVBox" layoutX="345.0" layoutY="22.0" prefHeight="300.0" prefWidth="212.0">
+            <children>
+                <Label alignment="CENTER" prefHeight="20.0" prefWidth="265.0" text="Library Settings">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="20.0" />
+                    </VBox.margin>
+                </Label>
+                <Button fx:id="setLibraryDirectoryButton" mnemonicParsing="false" onAction="#onSetLibraryDirectoryButton" prefHeight="25.0" prefWidth="230.0" text="Set Sub-images Library Directory" />
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="214.0" text="Sub-image Kernel Dimensions">
+                    <VBox.margin>
+                        <Insets top="20.0" />
+                    </VBox.margin>
+                </Label>
+                <GridPane fx:id="SubImageKernelDimentionsGrid" disable="true" hgap="5.0" prefWidth="173.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="Width" GridPane.halignment="CENTER" />
+                        <Spinner fx:id="subImageKernelWidthSpinner" editable="true" prefHeight="25.0" prefWidth="90.0" GridPane.rowIndex="1" />
+                        <Label text="Height" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                        <Spinner fx:id="subImageKernelHeightSpinner" editable="true" prefHeight="25.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    </children>
+                </GridPane>
+                <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="174.0" text="Mosaic Sub-division Count" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                    <VBox.margin>
+                        <Insets top="20.0" />
+                    </VBox.margin>
+                </Label>
+                <GridPane fx:id="MosaicSubDivisionCountGrid" disable="true" hgap="5.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="Width" GridPane.halignment="CENTER" />
+                        <Spinner fx:id="mosaicSubDivisionWidthSpinner" editable="true" prefHeight="25.0" prefWidth="90.0" GridPane.rowIndex="1" />
+                        <Label text="Height" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                        <Spinner fx:id="mosaicSubDivisionHeightSpinner" editable="true" prefHeight="25.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    </children>
+                </GridPane>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </VBox>
+        <Button fx:id="generateMosaicButton" layoutX="392.0" layoutY="336.0" mnemonicParsing="false" onAction="#onGenerateMosaicButton" text="Generate Mosaic" />
+        <Label contentDisplay="CENTER" layoutX="242.0" layoutY="5.0" text="Mosaicify" textAlignment="CENTER">
+            <font>
+                <Font name="Calibri Italic" size="22.0" />
+            </font>
+        </Label>
+        <VBox layoutX="22.0" layoutY="296.0" prefHeight="81.0" prefWidth="320.0" spacing="10.0">
+            <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="337.0" text="Output Resolution" />
+                <CheckBox fx:id="resizeOutputCheckBox" mnemonicParsing="false" onAction="#onResizeOutputCheckBox" text="Resize Output" />
+                <HBox fx:id="outputResolutionHBox" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                    <children>
+                        <Label text="Width">
+                            <HBox.margin>
+                                <Insets top="3.0" />
+                            </HBox.margin>
+                        </Label>
+                        <Spinner fx:id="outputResolutionWidthSpinner" editable="true" prefHeight="25.0" prefWidth="90.0" />
+                        <Label text="Height">
+                            <HBox.margin>
+                                <Insets left="10.0" top="3.0" />
+                            </HBox.margin>
+                        </Label>
+                        <Spinner fx:id="outputResolutionHeightSpinner" editable="true" prefHeight="25.0" prefWidth="90.0" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+        <HBox layoutX="10.0" layoutY="422.0" prefHeight="20.0" prefWidth="549.0" spacing="5.0">
+            <children>
+                <Label text="Library:">
+                    <font>
+                        <Font size="10.0" />
+                    </font>
+                </Label>
+                <Label fx:id="subImagesDirectoryLabel" prefWidth="427.0" text="None" textOverrun="LEADING_WORD_ELLIPSIS" wrapText="true">
+                    <font>
+                        <Font size="10.0" />
+                    </font>
+                </Label>
+                <Label fx:id="subImagesLibraryFileCountLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefWidth="50.0" text="0" textAlignment="RIGHT">
+                    <font>
+                        <Font size="10.0" />
+                    </font>
+                </Label>
+                <Label prefWidth="22.0" text="Files">
+                    <font>
+                        <Font size="10.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+        <VBox alignment="CENTER" fillWidth="false" layoutX="21.0" layoutY="41.0" prefHeight="200.0" prefWidth="320.0" spacing="10.0">
+            <children>
+                <ImageView fx:id="imageView" fitHeight="180.0" fitWidth="320.0" pickOnBounds="true" preserveRatio="true">
+                    <viewport>
+                        <Rectangle2D minX="320.0" minY="180.0" />
+                    </viewport>
+                </ImageView>
+                <Label fx:id="selectedImageDirectoryLabel" prefHeight="17.0" prefWidth="320.0" />
+                <Button fx:id="setImageButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onSetImageButton" text="Set Image" textAlignment="CENTER" />
+            </children>
+        </VBox>
+        <VBox layoutY="383.0" prefHeight="41.0" prefWidth="567.0" spacing="3.0">
+            <children>
+                <Label fx:id="progressStatusLabel" prefHeight="17.0" prefWidth="589.0" />
+                <ProgressBar fx:id="progressBar" prefHeight="17.0" prefWidth="609.0" progress="0.0" />
+            </children>
+            <padding>
+                <Insets left="5.0" right="5.0" />
+            </padding>
+        </VBox>
+    </children>
+</AnchorPane>

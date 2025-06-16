@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Main-Class: com.amremad719.mosaicify.Launcher
+
